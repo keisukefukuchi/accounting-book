@@ -13,8 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('accounting_books', function (Blueprint $table) {
+        Schema::create('incomes', function (Blueprint $table) {
             $table->id();
+            $table->date('date');
+            $table->string('price',64);
+            $table->unsignedTinyInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('accounting_books');
+        Schema::dropIfExists('incomes');
     }
 };
