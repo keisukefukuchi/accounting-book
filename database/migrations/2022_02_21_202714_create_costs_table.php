@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->date('date');
             $table->string('price',64);
-            $table->unsignedTinyInteger('user_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedTinyInteger('item_id');
+            $table->bigInteger('item_id')->unsigned();
             $table->foreign('item_id')->references('id')->on('items');
-            $table->unsignedTinyInteger('content_id');
+            $table->bigInteger('content_id')->unsigned();
             $table->foreign('content_id')->references('id')->on('contents');
             $table->timestamps();
         });

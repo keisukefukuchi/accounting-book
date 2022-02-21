@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->date('date');
             $table->string('price',64);
-            $table->unsignedTinyInteger('user_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
