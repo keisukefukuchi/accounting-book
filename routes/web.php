@@ -14,10 +14,11 @@ use App\Http\Controllers\AccountingController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/',[AccountingController::class, 'index']);
+Auth::routes();
+Route::get('/',[AccountingController::class, 'index'])->middleware('auth');
 Route::get('/register',[AuthController::class, 'index']);
 
 
-Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
